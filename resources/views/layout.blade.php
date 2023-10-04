@@ -26,7 +26,7 @@
                             <a class="nav-link" href="{{route('phones.index')}}">phones</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link " href="{{route('phones.create')}}" tabindex="-1" aria-disabled="true">create</a>
+                            <a class="nav-link " href="{{route('phones.create')}}" >create</a>
                         </li>
                     </ul>
                 </div>
