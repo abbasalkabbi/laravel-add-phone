@@ -9,17 +9,21 @@
     }
 </style>
 <h2 class="text-center">Add New Phone</h2>
-    <form class="card "  method="POST">
+    <form class="card " action="{{route('phones.store')}}" method="POST">
         @csrf
         <div class="mb-3">
             <label for="name-phone" class="form-label">Name Of Phone</label>
-            <input type="text" class="form-control" id="name-phone" >
-            <div class="form-text text-danger ">Name Error</div>
+            <input type="text" class="form-control" id="name-phone" name="name-phone" value="{{old('name-phone')}}">
+            @error('name-phone')
+                <div class="form-text text-danger ">Name Error</div>
+            @enderror
         </div>
         <div class="mb-3">
             <label for="price-phone" class="form-label">Price Of Phone</label>
-            <input type="text" class="form-control" id="price-phone" name="price-phone">
+            <input type="text" class="form-control" id="price-phone" name="price-phone" value="{{old('price-phone')}}">
+            @error('price-phone')
             <div class="form-text text-danger ">Price Error</div>
+            @enderror
         </div>
         <div class="btn-group" role="group" aria-label="Basic mixed styles example">
             <button type="submit" class="btn btn-primary">Save</button>

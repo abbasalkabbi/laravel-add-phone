@@ -36,7 +36,16 @@ class PhoneController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+            'name-phone' => 'required|max:255|string|min:8',
+            'price-phone' => 'required|integer',
+        ]);
+        $new_phone=new phone();
+        $new_phone->name=$request->input("name-phone");
+        $new_phone->price=$request->input("price-phone");
+        $new_phone->orgine='raq';
+        $new_phone->save();
+        return redirect()->route("phones.create");
     }
 
     /**
