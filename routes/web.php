@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\StackPageController;
+use App\Http\Controllers\PhoneController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,3 +17,4 @@ use App\Http\Controllers\StackPageController;
 
 Route::get('/', [StackPageController::class,'index'])->name('home');
 Route::get('/about', [StackPageController::class,'about'])->name('about');
+Route::resource('/phones',PhoneController::class);
