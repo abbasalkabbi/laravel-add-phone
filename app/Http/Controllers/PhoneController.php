@@ -43,7 +43,7 @@ class PhoneController extends Controller
         $new_phone=new phone();
         $new_phone->name=$request->input("name-phone");
         $new_phone->price=$request->input("price-phone");
-        $new_phone->orgine='raq';
+        $new_phone->orgine=$request->input("orgine-phone");
         $new_phone->save();
         return redirect()->route("phones.create");
     }
@@ -88,7 +88,7 @@ class PhoneController extends Controller
         $to_upate=phone::findOrFail($id);
         $to_upate->name=$request->input("name-phone");
         $to_upate->price=$request->input("price-phone");
-        $to_upate->orgine='raq';
+        $to_upate->orgine=$request->input("orgine-phone");
         $to_upate->save();
         return redirect()->route('phones.show',$id);
     }
