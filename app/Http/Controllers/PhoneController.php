@@ -37,7 +37,7 @@ class PhoneController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'name-phone' => 'required|max:255|string|min:8',
+            'name-phone' => 'required|max:255|string|min:3',
             'price-phone' => 'required|integer',
         ]);
         $new_phone=new phone();
@@ -68,7 +68,8 @@ class PhoneController extends Controller
      */
     public function edit($id)
     {
-        //
+        $to_edit=phone::findOrFail($id);
+        return view('phones.edit',['phone'=>$to_edit]);
     }
 
     /**
@@ -80,7 +81,16 @@ class PhoneController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $validated = $request->validate([
+            'name-phone' => 'required|max:255|string|min:3',
+            'price-phone' => 'required|integer',
+        ]);
+        $to_upate=phone::findOrFail($id);
+        $to_upate->name=$request->input("name-phone");
+        $to_upate->price=$request->input("price-phone");
+        $to_upate->orgine='raq';
+        $to_upate->save();
+        return redirect()->route('phones.show',$id);
     }
 
     /**
@@ -91,6 +101,8 @@ class PhoneController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $to_delete=phone::findOrFail($id);
+        $to_delete->delete();
+        return redirect()->route("phones.index");
     }
 }
