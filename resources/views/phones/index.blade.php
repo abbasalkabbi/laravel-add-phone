@@ -2,18 +2,19 @@
 @section('title','Phones')
 @section('content')
     <style>
-        ul{
-            width: 400px;
+        .list-group{
+            width: 60%;
             margin: auto;
         }
     </style>
-    <h1>Phones </h1>
+    <h1 class="text-center m-3">Phones </h1>
     <ul class="list-group list-group-numbered">
         @foreach ($phones as $phone)
         <li class="list-group-item d-flex justify-content-between align-items-start">
             <div class="ms-2 me-auto">
-                <div class="fw-bold">{{$phone->name}}</div>
-                {{$phone->price}}$
+                <div class="fw-bold text-secondary"><strong class="text-primary"> Name: </strong> {{$phone->name}}</div>
+                <div class="fw-bold text-secondary"><strong class="text-primary"> Price: </strong> {{$phone->price}}</div>
+                <div class="fw-bold text-secondary"><strong class="text-primary"> oringe: </strong> {{$phone->orgine}}</div>
             </div>
             <form action="{{route('phones.destroy',$phone->id)}}" method="POST">
             @csrf
