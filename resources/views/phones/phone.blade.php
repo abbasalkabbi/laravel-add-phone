@@ -6,6 +6,16 @@
             width: 80%;
             margin:40px auto;
         }
+        @media only screen and (max-width: 600px) {
+            .list-group{
+            width: 100%;
+            margin:40px auto;
+        }
+        .list-group li{
+            width: 95%;
+            margin: auto;
+        }
+        }
 </style>
 <ul class="list-group ">
     <li class="list-group-item d-flex justify-content-between align-items-start">

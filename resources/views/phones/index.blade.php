@@ -6,6 +6,16 @@
             width: 60%;
             margin: auto;
         }
+        @media only screen and (max-width: 600px) {
+            .list-group{
+            width: 100%;
+            margin:40px auto;
+        }
+        .list-group li{
+            width: 95%;
+            margin: auto;
+        }
+        }
     </style>
     <h1 class="text-center m-3">Phones </h1>
     <ul class="list-group list-group-numbered">

@@ -7,8 +7,15 @@
         width:400px;
         padding:10px;
     }
+    @media only screen and (max-width: 600px) {
+        form{
+        margin:auto;
+        width:90%;
+        padding:5px;
+    }
+    }
 </style>
-<h2 class="text-center">Add New Phone</h2>
+<h2 class="text-center">Edit Phone</h2>
     <form class="card " action="{{route('phones.update',['phone'=>$phone->id])}}" method="POST">
         @csrf
         @method('PUT')
